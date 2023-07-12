@@ -11,11 +11,11 @@ const relayList = {
 const url           = Deno.env.get("FEED_URL");
 const privateKey    = Deno.env.get("PRIVATE_KEY");
 const targetMinutes = Deno.env.get("TARGET_MINUTES");
-const pastDate      = Date.now() - (60 * targetMinutes * 1000);
+const pastDate      = Date.now() - (60 * targetMinutes);
 
 const response = await fetch(url);
 const xml      = await response.text();
-const feed     = await pareFeed(xml);
+const feed     = await parseFeed(xml);
 
 const nostr = new Nostr();
 nostr.privateKey = privateKey;
