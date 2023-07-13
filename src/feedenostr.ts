@@ -11,7 +11,7 @@ const relayList = {
 const url           = Deno.env.get("FEED_URL");
 const privateKey    = Deno.env.get("PRIVATE_KEY");
 const targetMinutes = Deno.env.get("TARGET_MINUTES");
-const pastDate      = Date.now() - (60 * targetMinutes);
+const pastDate      = Date.now() - (60 * targetMinutes * 1000);
 
 const response = await fetch(url);
 const xml      = await response.text();
