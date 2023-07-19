@@ -1,5 +1,5 @@
 # feedenostr
-feed を deno で nostr に投稿する。  
+feed を deno で nostr に投稿（feed のタイトルとリンク）する。  
 コンテナ起動時間から指定した基準（TARGET_MINUTES）分の前に投稿された記事を取得し POST する。
 
 # 環境変数
@@ -20,4 +20,10 @@ docker run -it --rm --mount type=bind,source="$(pwd)"/src,target=/srv -w /srv \
   -e PRIVATE_KEY="nsecxxxxxxxxxxxxxxxxxxxxx" \
   -e TARGET_MINUTES=30 \
   feedenostr bash
+
+# コンテナ実行（1時間前に投稿された feed を取得）
+docker run --rm \
+  -e FEED_URL="https://xxxxxxxxx.xx/" \
+  -e PRIVATE_KEY="nsecxxxxxxxxxxxxxxxxxxxxx" \
+  -e TARGET_MINUTES=60 feedenostr
 ```
