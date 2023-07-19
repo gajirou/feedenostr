@@ -1,10 +1,9 @@
 import { parseFeed, Nostr, Relay } from './deps.ts';
 
 const relayList = {
-  "Eden"    : "wss://eden.nostr.land",
   "Damus"   : "wss://relay.damus.io",
   "Nokotaro": "wss://nostr-relay.nokotaro.com",
-  //"Relay-jp": "wss://relay-jp.nostr.wirednet.jp",
+  "Relay-jp": "wss://relay-jp.nostr.wirednet.jp",
   "Relay.jp": "wss://relay.nostr.wirednet.jp"
 };
 
@@ -40,7 +39,7 @@ for (const entrie of feed.entries) {
   if(publishedDate <= pastDate) {
     continue;
   }
-  await nostr.sendTextPost(entrie.title.value + "\n" + entrie.links[0].href);
+ await nostr.sendTextPost(entrie.title.value + "\n" + entrie.links[0].href);
 }
 
 await nostr.disconnect();
