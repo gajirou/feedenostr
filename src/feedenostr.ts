@@ -39,7 +39,7 @@ for (const entrie of feed.entries) {
   if(publishedDate <= pastDate) {
     continue;
   }
- await nostr.sendTextPost(entrie.title.value + "\n" + entrie.links[0].href);
+  await nostr.sendTextPost(entrie.title.value + "\n" + entrie.links[0].href);
 }
 
 await nostr.disconnect();
