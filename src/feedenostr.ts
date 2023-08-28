@@ -1,4 +1,4 @@
-import { parseFeed, Nostr, Relay } from './deps.ts';
+import { parseFeed, Nostr, Relay } from "./deps.ts";
 
 const relayList = {
   "Damus"   : "wss://relay.damus.io",
