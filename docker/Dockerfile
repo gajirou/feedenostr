@@ -1,4 +1,4 @@
-ARG DENO_VERSION=1.35.0
+ARG DENO_VERSION=1.36.4
 
 FROM denoland/deno:bin-${DENO_VERSION} AS deno
 FROM debian:11-slim

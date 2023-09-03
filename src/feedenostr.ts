@@ -1,7 +1,9 @@
 import { parseFeed, Nostr, Relay } from "./deps.ts";
 
 const relayList = {
+  //"lol" : "wss://nos.lol",
   "Damus"   : "wss://relay.damus.io",
+  "Yabume"  : "wss//yabu.me",
   "Nokotaro": "wss://nostr-relay.nokotaro.com",
   "Relay-jp": "wss://relay-jp.nostr.wirednet.jp",
   "Relay.jp": "wss://relay.nostr.wirednet.jp"
@@ -27,13 +29,13 @@ for(const key in relayList) {
   });
 }
 
-nostr.on('relayConnected', (relay: Relay) => console.log('Relay connected.', relay.name));
-nostr.on('relayError', (err: Error) => console.log('Relay error;', err));
-nostr.on('relayNotice', (notice: string[]) => console.log('Notice', notice));
+nostr.on("relayConnected", (relay: Relay) => console.log("Relay connected.", relay.name));
+nostr.on("relayError", (err: Error) => Deno.exit(console.log(err)));
+nostr.on("relayNotice", (notice: string[]) => console.log("Notice", notice));
 
 nostr.debugMode = true;
-await nostr.connect();
 
+await nostr.connect();
 for (const entrie of feed.entries) {
   const publishedDate = new Date(entrie.published).getTime();
   if(publishedDate <= pastDate) {
@@ -41,7 +43,6 @@ for (const entrie of feed.entries) {
   }
   await nostr.sendTextPost(entrie.title.value + "\n" + entrie.links[0].href);
 }
-
 await nostr.disconnect();
 
 Deno.exit(0);
