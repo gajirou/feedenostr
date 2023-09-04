@@ -3,7 +3,7 @@ import { parseFeed, Nostr, Relay } from "./deps.ts";
 const relayList = {
   //"lol" : "wss://nos.lol",
   "Damus"   : "wss://relay.damus.io",
-  "Yabume"  : "wss//yabu.me",
+  "Yabume"  : "wss://yabu.me",
   "Nokotaro": "wss://nostr-relay.nokotaro.com",
   "Relay-jp": "wss://relay-jp.nostr.wirednet.jp",
   "Relay.jp": "wss://relay.nostr.wirednet.jp"
